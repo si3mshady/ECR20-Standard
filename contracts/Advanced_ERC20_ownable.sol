@@ -108,7 +108,21 @@ contract owned {
     }
 
 
+function mintToken (address _target, uint256 _mintedAmount) onlyOwner {
+    // function that can mint tokens whenever the owner decides
+    balanceOf[_target] += _mintedAmount;
+    totalSupply += _mintedAmount;
+    emit Transfer(0, owner, _mintedAmount);
+    emit Transfer(owner, _target, _mintedAmount);
+}
 
+function burn(uint256 _value) onlyOwner returns (bool success) {
+    require(balanceOf[msg.sender] >= _value);  
+    balanceOf[msg.sender] -= _value;
+    totalSupply -= _value;
+    emit Burn(msg.sender, _value);
+    return true
+}
 
 
 }
