@@ -1,13 +1,13 @@
 pragma solidity >=0.4.22 <0.9.0;
 
-contract ERC20Interface  is owned{
+contract StandardToken  is owned{
     //store all the balances of wallets which have the token
     // https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md
     uint256 public totalSupply;
     string public name;
     string public symbol;
     uint8 public decimals = 18;
-    mapping(address => uint256) public balanceOf;
+    mapping(address => uint25`6) public balanceOf;
     // this mapping will track which addresses have allowed
     // whom  to spend tokens on thier behalf
     // when public functions are created, automatically getter functions are created.
